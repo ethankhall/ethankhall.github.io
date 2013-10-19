@@ -1,3 +1,4 @@
 name: Notes from a dev
 markdown: redcarpet
 pygments: true
+permalink: /blog/:year/:month/:day/:title
