@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Test Double for @Schedualed tasks"
+title:  "Test Double for @Scheduled tasks"
 date:   2013-10-17 18:49:32
 categories: spring anotations gradle jetty
 ---
