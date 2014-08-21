@@ -68,6 +68,7 @@ The loopOverSecondIndex method is almost 3.3 times as fast as loopOverFirstIndex
 #### Dig into the results
 
 So we need to go over some definitions:
+
 - Cache
     - A processor has several of these. Let's call them L1 and L2. To get data into L1 it must first be moved into L2. To get into L2 it has to be in RAM. The process in which memory moves from RAM into a cache is hardware driven. When there is a cache miss, the processor will move to the next level to pull in values.
     - Caches decrease runtime. Some documentation can be found on [Wiki](https://en.wikipedia.org/wiki/CPU_cache).
