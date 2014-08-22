@@ -10,10 +10,12 @@ void setup();
 long runTest(void (*funPointer)(void));
 void loopOverSecondIndex();
 void loopOverFirstIndex();
+void loopOverAndModifyFirstIndex();
 void printStats(char* testRun, long* results);
 
 int main() {
     long firstIndexResults[TEST_SIZE];
+    long firstIndexAndModifyResults[TEST_SIZE];
     long secondIndexResults[TEST_SIZE];
 
     for(int i = 0; i < TEST_SIZE; i++) {
@@ -22,9 +24,15 @@ int main() {
     printStats("First Index [i+1][j]", firstIndexResults);
     
     for(int i = 0; i < TEST_SIZE; i++) {
+        firstIndexAndModifyResults[i] = runTest(loopOverAndModifyFirstIndex);
+    }
+
+    printStats("Second Index [i+1][j] += [i][j]", firstIndexAndModifyResults);
+    for(int i = 0; i < TEST_SIZE; i++) {
         secondIndexResults[i] = runTest(loopOverSecondIndex);
     }
     printStats("Second Index [i][j+1]", secondIndexResults);
+
 }
 
 void printStats(char* testRun, long* results) {
@@ -60,6 +68,13 @@ void loopOverFirstIndex() {
     for(int j = 1; j < SIZE; j++) {
         for(int i = 1; i < SIZE; i++){
             largeArray[i][j] += largeArray[i][j-1];
+        }
+    }
+}
+void loopOverAndModifyFirstIndex() {
+    for(int j = 1; j < SIZE; j++) {
+        for(int i = 1; i < SIZE; i++){
+            largeArray[i][j] += largeArray[i-1][j];
         }
     }
 }
